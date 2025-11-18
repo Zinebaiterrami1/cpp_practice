@@ -1,10 +1,12 @@
-NAME = Phononock
+NAME = phonebook
 
 CPP = c++
 
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC = main.cpp
+SRC = main.cpp Contact.cpp PhoneBook.cpp\
+
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
@@ -12,9 +14,11 @@ $(NAME): $(SRC)
 	$(CPP) $(CPPFLAGS) $(SRC) -o $(NAME)
 
 clean: 
-	rm -rf megaphone.o
+	rm -rf $(OBJ)
 
 fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re
