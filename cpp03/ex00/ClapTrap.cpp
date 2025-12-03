@@ -54,7 +54,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         << std::endl;
         return ;
     }
-    if((int)amount >= HitPoint)
+    if(amount >= HitPoint)
     {
         HitPoint = 0;
         std::cout << "ClapTrap " << Name

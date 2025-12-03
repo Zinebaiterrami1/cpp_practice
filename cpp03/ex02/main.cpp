@@ -2,21 +2,19 @@
 
 int main()
 {
-    ClapTrap a("Bot 1");
-    ScavTrap b("Bot 2");
-    FragTrap c("Bot 3");
+    FragTrap frag1("Fraggy");
+    FragTrap frag2 = frag1; 
+    FragTrap frag3;
+    frag3 = frag1; 
 
-    a.attack("Bot a");
-    a.takeDamage(5);
-    a.beRepaired(10);
-    std::cout << "---------------------------------------------" << std::endl;
-    b.attack("Bot b");
-    b.takeDamage(5);
-    b.beRepaired(10);
-    b.guardGate();
-    std::cout << "---------------------------------------------" << std::endl;
-    c.attack("Bot c");
-    c.takeDamage(5);
-    c.beRepaired(10);
-    c.highFivesGuys();
+    frag1.attack("Target1");
+    frag1.highFivesGuys();
+
+    frag2.attack("Target2");
+    frag2.highFivesGuys();
+
+    frag3.attack("Target3");
+    frag3.highFivesGuys();
+
+    return 0;
 }

@@ -16,7 +16,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     AttackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &val)
+ScavTrap::ScavTrap(const ScavTrap &val) : ClapTrap(val)
 {
     std::cout<<"ScavTrap Copy constructor called"<<std::endl;
     *this = val;
@@ -42,11 +42,13 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::attack(const std::string& target)
 {
+    ClapTrap::attack(target);
+
     if(HitPoint <= 0 || EnergyPoint <= 0)
-        std::cout << "ClapTrap can't attack" << std::endl;
+        std::cout << "ScavTrap can't attack" << std::endl;
     if(EnergyPoint > 0)
         EnergyPoint -= 1;
-    std::cout << "ClapTrap " << Name
+    std::cout << "ScavTrap " << Name
     << " attacks " << target << " ,causing " << AttackDamage << " points of damage!"
     << std::endl;
 }

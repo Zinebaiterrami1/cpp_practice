@@ -5,7 +5,7 @@ ClapTrap::ClapTrap(): HitPoint(10), EnergyPoint(10), AttackDamage(0)
     std::cout << "ClapTrap Default constructor called" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &val)
+ClapTrap::ClapTrap(const ClapTrap &val) 
 {
     std::cout<<"ClapTrap Copy constructor called"<<std::endl;
     *this = val;
@@ -54,7 +54,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         << std::endl;
         return ;
     }
-    if((int)amount >= HitPoint)
+    if(amount >= HitPoint)
     {
         HitPoint = 0;
         std::cout << "ClapTrap " << Name
