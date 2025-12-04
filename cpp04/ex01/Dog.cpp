@@ -20,9 +20,7 @@ Dog& Dog::operator=(const Dog& other)
     if(this != &other)
     {
         this->type = other.type;
-        if(this->brain)
-            delete brain;
-         brain = new Brain(*other.brain); 
+        brain = new Brain(*other.brain); 
     }
     return *this;
 }
@@ -36,4 +34,19 @@ Dog::~Dog()
 void Dog::makeSound() const
 {
     std::cout << "woof" << std::endl;
+}
+
+
+void Dog::setIdea(int index, const std::string& idea)
+{
+    if (brain)
+        brain->setIdea(index, idea);
+}
+
+std::string Dog::getIdea(int index) const
+{
+    if(brain)
+        return (brain->getIdea(index));
+    else
+        return NULL;
 }

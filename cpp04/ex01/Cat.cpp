@@ -20,9 +20,7 @@ Cat& Cat::operator=(const Cat& other)
     if(this != &other)
     {
         this->type = other.type;
-        if(this->brain)
-            delete brain;
-         brain = new Brain(*other.brain); //if i use this->brain = other.brain, this is a shollow copy and it cause, double free
+        brain = new Brain(*other.brain); //if i use this->brain = other.brain, this is a shollow copy and it cause, double free
     }
     return *this;
 }
@@ -39,4 +37,16 @@ void Cat::makeSound() const
 }
 
 
+void Cat::setIdea(int index, const std::string& idea)
+{
+    if (brain)
+        brain->setIdea(index, idea);
+}
 
+std::string Cat::getIdea(int index) const
+{
+    if(brain)
+        return (brain->getIdea(index));
+    else
+        return NULL;
+}
